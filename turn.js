@@ -11,11 +11,24 @@
 
 (function($){
   $.fn.fold = function(options) {
+    /* this doesn't work with IE8
     var ie55 = (navigator.appName == "Microsoft Internet Explorer" && parseInt(navigator.appVersion) == 4 && navigator.appVersion.indexOf("MSIE 5.5") != -1);
     var ie6 = (navigator.appName == "Microsoft Internet Explorer" && parseInt(navigator.appVersion) == 4 && navigator.appVersion.indexOf("MSIE 6.0") != -1);
     
     // We just won't show it for IE5.5 and IE6. Go away. I'm really tempted to write "document.location= 'http://www.getfirefox.com';" here.
     if (ie55 || ie6) {this.remove(); return true;}
+    */
+    
+    // MSIE must be 8 or greater
+    if (navigator.appName == "Microsoft Internet Explorer"){
+        var ary = navigator.appVersion.match(/MSIE..../g);
+        var msieVersion = 8; // in case our test fails try it anyway
+        for(var i=0; i<ary.length; i++){
+            msieVersion = parseInt(ary[i].substr(ary[i].indexOf(' ')+1));
+            if (msieVersion > 7) break;
+        }
+        if (msieVersion < 8)  {this.remove(); return true;}
+    }
   
     // New - you don't have to specify options!
     options = options || {};
