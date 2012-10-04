@@ -27,7 +27,6 @@
             msieVersion = parseInt(ary[i].substr(ary[i].indexOf(' ')+1));
             if (msieVersion > 7) break;
         }
-        if (msieVersion < 8)  {this.remove(); return true;}
     }
   
     // New - you don't have to specify options!

@@ -62,6 +62,19 @@
 
 /* the jQuery CSS Framework */
 #turn_wrapper .ui-resizable { position: relative;}
-#turn_wrapper .ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block; background-image: url(#none)}
 #turn_wrapper .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 0; bottom: 0; }
 #turn_wrapper .ui-resizable-sw { cursor: sw-resize; width: 12px; height: 12px; left: 0; bottom: 0; }
+
+
+#turn_wrapper .ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	z-index: 99999; 
+	display: block;
+  border: none !important;
+  border-width: 0 !important;
+	/* I have NO idea why this works for IE7, but it does. Background none doesn't work. Go figure. */
+  background: url(#none) !important; 
+  width: 100% !important;
+  height: 100% !important;
+}
